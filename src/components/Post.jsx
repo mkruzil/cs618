@@ -14,3 +14,9 @@ export function Post({ title, contents, author }) {
     </article>
   )
 }
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  contents: PropTypes.string.isRequired,
+  author: PropTypes.string,
+}
