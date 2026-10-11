@@ -16,7 +16,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: google-github-actions/auth@v1
+      - id: auth
+        uses: google-github-actions/auth@v1
         with:
           service_account: ${{ secrets.GOOGLECLOUD_SERVICE_ACCOUNT }}
           credentials_json: ${{ secrets.GOOGLECLOUD_CREDENTIALS }}
@@ -34,6 +35,8 @@ jobs:
           service: blog-backend
           image: ${{ secrets.DOCKERHUB_USERNAME }}/blog-backend:${{ github.sha }}
           region: ${{ secrets.GOOGLECLOUD_REGION }}
+      - name: Keep the Google credentials file out of the frontend image
+        run: basename "${{ steps.auth.outputs.credentials_file_path }}" >> .dockerignore
       - name: Build and push frontend image
         uses: docker/build-push-action@v4
         with:
