@@ -1,0 +1,4 @@
+{
+  "schema": "https://stunning-cod-g495wrpq7xhpp5w-3000.app.github.dev/graphql",
+  "documents": "src/api/graphql/**/*.{js,jsx}"
+}
