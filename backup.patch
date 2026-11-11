@@ -1,0 +1,1148 @@
+diff --git a/backend/package-lock.json b/backend/package-lock.json
+index 7362a10..93f7818 100644
+--- a/backend/package-lock.json
++++ b/backend/package-lock.json
+@@ -18,7 +18,8 @@
+         "mongodb": "^6.3.0",
+         "mongoose": "^8.0.2",
+         "react": "^18.2.0",
+-        "react-dom": "^18.2.0"
++        "react-dom": "^18.2.0",
++        "socket.io": "^4.7.2"
+       },
+       "devDependencies": {
+         "@commitlint/cli": "^18.4.3",
+@@ -2360,6 +2361,12 @@
+         "@sinonjs/commons": "^3.0.0"
+       }
+     },
++    "node_modules/@socket.io/component-emitter": {
++      "version": "3.1.2",
++      "resolved": "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz",
++      "integrity": "sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==",
++      "license": "MIT"
++    },
+     "node_modules/@types/babel__core": {
+       "version": "7.20.5",
+       "resolved": "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz",
+@@ -2405,6 +2412,21 @@
+         "@babel/types": "^7.28.2"
+       }
+     },
++    "node_modules/@types/cookie": {
++      "version": "0.4.1",
++      "resolved": "https://registry.npmjs.org/@types/cookie/-/cookie-0.4.1.tgz",
++      "integrity": "sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==",
++      "license": "MIT"
++    },
++    "node_modules/@types/cors": {
++      "version": "2.8.19",
++      "resolved": "https://registry.npmjs.org/@types/cors/-/cors-2.8.19.tgz",
++      "integrity": "sha512-mFNylyeyqN93lfe/9CSxOGREz8cpzAhH+E93xJ4xWQf62V8sQ/24reV2nyzUWM6H6Xji+GGHpkbLe7pVoUEskg==",
++      "license": "MIT",
++      "dependencies": {
++        "@types/node": "*"
++      }
++    },
+     "node_modules/@types/estree": {
+       "version": "1.0.9",
+       "resolved": "https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz",
+@@ -3560,6 +3582,15 @@
+         "bare-path": "^3.0.0"
+       }
+     },
++    "node_modules/base64id": {
++      "version": "2.0.0",
++      "resolved": "https://registry.npmjs.org/base64id/-/base64id-2.0.0.tgz",
++      "integrity": "sha512-lGe34o6EHj9y3Kts9R4ZYs/Gr+6N7MCaMlIFA3F1R2O5/m7K06AxfSeO5530PEERE6/WyEg3lsuyw4GHlPZHog==",
++      "license": "MIT",
++      "engines": {
++        "node": "^4.5.0 || >= 5.9"
++      }
++    },
+     "node_modules/baseline-browser-mapping": {
+       "version": "2.11.21",
+       "resolved": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.11.21.tgz",
+@@ -4673,6 +4704,62 @@
+         "node": ">= 0.8"
+       }
+     },
++    "node_modules/engine.io": {
++      "version": "6.5.5",
++      "resolved": "https://registry.npmjs.org/engine.io/-/engine.io-6.5.5.tgz",
++      "integrity": "sha512-C5Pn8Wk+1vKBoHghJODM63yk8MvrO9EWZUfkAt5HAqIgPE4/8FF0PEGHXtEd40l223+cE5ABWuPzm38PHFXfMA==",
++      "license": "MIT",
++      "dependencies": {
++        "@types/cookie": "^0.4.1",
++        "@types/cors": "^2.8.12",
++        "@types/node": ">=10.0.0",
++        "accepts": "~1.3.4",
++        "base64id": "2.0.0",
++        "cookie": "~0.4.1",
++        "cors": "~2.8.5",
++        "debug": "~4.3.1",
++        "engine.io-parser": "~5.2.1",
++        "ws": "~8.17.1"
++      },
++      "engines": {
++        "node": ">=10.2.0"
++      }
++    },
++    "node_modules/engine.io-parser": {
++      "version": "5.2.3",
++      "resolved": "https://registry.npmjs.org/engine.io-parser/-/engine.io-parser-5.2.3.tgz",
++      "integrity": "sha512-HqD3yTBfnBxIrbnM1DoD6Pcq8NECnh8d4As1Qgh0z5Gg3jRRIqijury0CL3ghu/edArpUYiYqQiDUQBIs4np3Q==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=10.0.0"
++      }
++    },
++    "node_modules/engine.io/node_modules/cookie": {
++      "version": "0.4.2",
++      "resolved": "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz",
++      "integrity": "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==",
++      "license": "MIT",
++      "engines": {
++        "node": ">= 0.6"
++      }
++    },
++    "node_modules/engine.io/node_modules/debug": {
++      "version": "4.3.7",
++      "resolved": "https://registry.npmjs.org/debug/-/debug-4.3.7.tgz",
++      "integrity": "sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==",
++      "license": "MIT",
++      "dependencies": {
++        "ms": "^2.1.3"
++      },
++      "engines": {
++        "node": ">=6.0"
++      },
++      "peerDependenciesMeta": {
++        "supports-color": {
++          "optional": true
++        }
++      }
++    },
+     "node_modules/environment": {
+       "version": "1.1.0",
+       "resolved": "https://registry.npmjs.org/environment/-/environment-1.1.0.tgz",
+@@ -10978,6 +11065,85 @@
+         "url": "https://github.com/chalk/ansi-styles?sponsor=1"
+       }
+     },
++    "node_modules/socket.io": {
++      "version": "4.7.2",
++      "resolved": "https://registry.npmjs.org/socket.io/-/socket.io-4.7.2.tgz",
++      "integrity": "sha512-bvKVS29/I5fl2FGLNHuXlQaUH/BlzX1IN6S+NKLNZpBsPZIDH+90eQmCs2Railn4YUiww4SzUedJ6+uzwFnKLw==",
++      "license": "MIT",
++      "dependencies": {
++        "accepts": "~1.3.4",
++        "base64id": "~2.0.0",
++        "cors": "~2.8.5",
++        "debug": "~4.3.2",
++        "engine.io": "~6.5.2",
++        "socket.io-adapter": "~2.5.2",
++        "socket.io-parser": "~4.2.4"
++      },
++      "engines": {
++        "node": ">=10.2.0"
++      }
++    },
++    "node_modules/socket.io-adapter": {
++      "version": "2.5.8",
++      "resolved": "https://registry.npmjs.org/socket.io-adapter/-/socket.io-adapter-2.5.8.tgz",
++      "integrity": "sha512-6Oy52pbg+kvdCVvjcN+FnY7BvxZ7cIHNScbvztT/It5d0vbwoJoVZmF2gjJmnV0/4WlXRfG15zc45ySk9Ah8bw==",
++      "license": "MIT",
++      "dependencies": {
++        "debug": "~4.4.1",
++        "ws": "~8.21.0"
++      }
++    },
++    "node_modules/socket.io-adapter/node_modules/ws": {
++      "version": "8.21.3",
++      "resolved": "https://registry.npmjs.org/ws/-/ws-8.21.3.tgz",
++      "integrity": "sha512-201TZ/kPWxoPr/OKWjquZR1SWKXcvxdH+e1xrx89b3YbmzLMFCLfnaG1HFIgWzJOEWZ7MvpK++odZufgYR50Rw==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=10.0.0"
++      },
++      "peerDependencies": {
++        "bufferutil": "^4.0.1",
++        "utf-8-validate": ">=5.0.2"
++      },
++      "peerDependenciesMeta": {
++        "bufferutil": {
++          "optional": true
++        },
++        "utf-8-validate": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/socket.io-parser": {
++      "version": "4.2.7",
++      "resolved": "https://registry.npmjs.org/socket.io-parser/-/socket.io-parser-4.2.7.tgz",
++      "integrity": "sha512-IH/iSeO9T6gz1KkFleGDWkG9N3dl4jXVYUtMhIqH10Md0ttMer8nUNWiP1DKuNrybD2xBrixLJdCC9J6ECoYkg==",
++      "license": "MIT",
++      "dependencies": {
++        "@socket.io/component-emitter": "~3.1.0",
++        "debug": "~4.4.1"
++      },
++      "engines": {
++        "node": ">=10.0.0"
++      }
++    },
++    "node_modules/socket.io/node_modules/debug": {
++      "version": "4.3.7",
++      "resolved": "https://registry.npmjs.org/debug/-/debug-4.3.7.tgz",
++      "integrity": "sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==",
++      "license": "MIT",
++      "dependencies": {
++        "ms": "^2.1.3"
++      },
++      "engines": {
++        "node": ">=6.0"
++      },
++      "peerDependenciesMeta": {
++        "supports-color": {
++          "optional": true
++        }
++      }
++    },
+     "node_modules/source-map": {
+       "version": "0.6.1",
+       "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+@@ -12241,6 +12407,27 @@
+         "node": "^12.13.0 || ^14.15.0 || >=16.0.0"
+       }
+     },
++    "node_modules/ws": {
++      "version": "8.17.1",
++      "resolved": "https://registry.npmjs.org/ws/-/ws-8.17.1.tgz",
++      "integrity": "sha512-6XQFvXTkbfUOZOKKILFG1PDK2NDQs4azKQl26T0YS5CxqWLgXajbPZ+h4gZekJyRqFU8pvnbAbbs/3TgRPy+GQ==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=10.0.0"
++      },
++      "peerDependencies": {
++        "bufferutil": "^4.0.1",
++        "utf-8-validate": ">=5.0.2"
++      },
++      "peerDependenciesMeta": {
++        "bufferutil": {
++          "optional": true
++        },
++        "utf-8-validate": {
++          "optional": true
++        }
++      }
++    },
+     "node_modules/y18n": {
+       "version": "5.0.8",
+       "resolved": "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz",
+diff --git a/backend/package.json b/backend/package.json
+index d6b99dc..e5c2024 100644
+--- a/backend/package.json
++++ b/backend/package.json
+@@ -20,7 +20,8 @@
+     "mongodb": "^6.3.0",
+     "mongoose": "^8.0.2",
+     "react": "^18.2.0",
+-    "react-dom": "^18.2.0"
++    "react-dom": "^18.2.0",
++    "socket.io": "^4.7.2"
+   },
+   "devDependencies": {
+     "@commitlint/cli": "^18.4.3",
+diff --git a/backend/src/__tests__/posts.test.js b/backend/src/__tests__/posts.test.js
+deleted file mode 100644
+index cf64d22..0000000
+--- a/backend/src/__tests__/posts.test.js
++++ /dev/null
+@@ -1,159 +0,0 @@
+-import mongoose from 'mongoose'
+-import { describe, expect, test, beforeEach, beforeAll } from '@jest/globals'
+-import { createPost, listAllPosts, listPostsByTag, listPostsByAuthor, getPostById, updatePost, deletePost } from '../services/posts.js'
+-import { Post } from '../db/models/post.js'
+-
+-import { createUser } from '../services/users.js'
+-
+-let testUser = null
+-let samplePosts = []
+-
+-beforeAll(async () => {
+-  testUser = await createUser({ username: 'sample', password: 'user' })
+-  samplePosts = [
+-    { title: 'Learning Redux', author: testUser._id, tags: ['redux'] },
+-    { title: 'Learn React Hooks', author: testUser._id, tags: ['react'] },
+-    {
+-      title: 'Full-Stack React Projects',
+-      author: testUser._id,
+-      tags: ['react', 'nodejs'],
+-    },
+-  ]
+-})
+-
+-let createdSamplePosts = []
+-beforeEach(async () => {
+-  await Post.deleteMany({})
+-  createdSamplePosts = []
+-  for (const post of samplePosts) {
+-    const createdPost = new Post(post)
+-    createdSamplePosts.push(await createdPost.save())
+-  }
+-})
+-
+-describe('deleting posts', () => {
+-  test('should remove the post from the database', async () => {
+-    const result = await deletePost(testUser._id, createdSamplePosts[0]._id)
+-    expect(result.deletedCount).toEqual(1)
+-    const deletedPost = await Post.findById(createdSamplePosts[0]._id)
+-    expect(deletedPost).toEqual(null)
+-  })
+-  test('should fail if the id does not exist', async () => {
+-    const result = await deletePost('000000000000000000000000')
+-    expect(result.deletedCount).toEqual(0)
+-  })
+-})
+-
+-describe('updating posts', () => {
+-  test('should update the specified property', async () => {
+-    await updatePost(testUser._id, createdSamplePosts[0]._id, {
+-      contents: 'some content change',
+-    })
+-    const updatedPost = await Post.findById(createdSamplePosts[0]._id)
+-    expect(updatedPost.contents).toEqual('some content change')
+-  })
+-  test('should not update other properties', async () => {
+-    await updatePost(testUser._id, createdSamplePosts[0]._id, {
+-      contents: 'some content change',
+-    })
+-    const updatedPost = await Post.findById(createdSamplePosts[0]._id)
+-    expect(updatedPost.title).toEqual('Learning Redux')
+-  })
+-  test('should update the updatedAt timestamp', async () => {
+-    await updatePost(testUser._id, createdSamplePosts[0]._id, {
+-      contents: 'some content change',
+-    })
+-    const updatedPost = await Post.findById(createdSamplePosts[0]._id)
+-    expect(updatedPost.updatedAt.getTime()).toBeGreaterThan(
+-      createdSamplePosts[0].updatedAt.getTime(),
+-    )
+-  })
+-  test('should fail if the id does not exist', async () => {
+-    const post = await updatePost(testUser._id, '000000000000000000000000', {
+-      contents: 'some content change',
+-    })
+-    expect(post).toEqual(null)
+-  })
+-})
+-
+-describe('getting a post', () => {
+-  test('should return the full post', async () => {
+-    const post = await getPostById(createdSamplePosts[0]._id)
+-    expect(post.toObject()).toEqual(createdSamplePosts[0].toObject())
+-  })
+-  test('should fail if the id does not exist', async () => {
+-    const post = await getPostById('000000000000000000000000')
+-    expect(post).toEqual(null)
+-  })
+-})
+-
+-describe('listing posts', () => {
+-  test('should return all posts', async () => {
+-    const posts = await listAllPosts()
+-    expect(posts.length).toEqual(createdSamplePosts.length)
+-  })
+-  test('should return posts sorted by creation date descending by default', async () => {
+-    const posts = await listAllPosts()
+-    const sortedSamplePosts = createdSamplePosts.sort(
+-      (a, b) => b.createdAt - a.createdAt,
+-    )
+-    expect(posts.map((post) => post.createdAt)).toEqual(
+-      sortedSamplePosts.map((post) => post.createdAt),
+-    )
+-  })
+-  test('should take into account provided sorting options', async () => {
+-    const posts = await listAllPosts({
+-      sortBy: 'updatedAt',
+-      sortOrder: 'ascending',
+-    })
+-    const sortedSamplePosts = createdSamplePosts.sort(
+-      (a, b) => a.updatedAt - b.updatedAt,
+-    )
+-    expect(posts.map((post) => post.updatedAt)).toEqual(
+-      sortedSamplePosts.map((post) => post.updatedAt),
+-    )
+-  })
+-  test('should be able to filter posts by tag', async () => {
+-    const posts = await listPostsByTag('nodejs')
+-    expect(posts.length).toBe(1)
+-  })
+-  test('should be able to filter posts by author', async () => {
+-    const posts = await listPostsByAuthor(testUser.username)
+-    expect(posts.length).toBe(3)
+-  })
+-})
+-
+-describe('creating posts', () => {
+-  test('with all parameters should succeed', async () => {
+-    const post = {
+-      title: 'Hello Mongoose!',
+-      contents: 'This post is stored in a MongoDB database using Mongoose.',
+-      tags: ['mongoose', 'mongodb'],
+-    }
+-    const createdPost = await createPost(testUser._id, post)
+-    expect(createdPost._id).toBeInstanceOf(mongoose.Types.ObjectId)
+-    const foundPost = await Post.findById(createdPost._id)
+-    expect(foundPost).toEqual(expect.objectContaining(post))
+-    expect(foundPost.createdAt).toBeInstanceOf(Date)
+-    expect(foundPost.updatedAt).toBeInstanceOf(Date)
+-  })
+-  test('without title should fail', async () => {
+-    const post = {
+-      contents: 'Post with no title',
+-      tags: ['empty'],
+-    }
+-    try {
+-      await createPost(testUser._id, post)
+-    } catch (err) {
+-      expect(err).toBeInstanceOf(mongoose.Error.ValidationError)
+-      expect(err.message).toContain('`title` is required')
+-    }
+-  })
+-  test('with minimal parameters should succeed', async () => {
+-    const post = {
+-      title: 'Only a title',
+-    }
+-    const createdPost = await createPost(testUser._id, post)
+-    expect(createdPost._id).toBeInstanceOf(mongoose.Types.ObjectId)
+-  })
+-})
+\ No newline at end of file
+diff --git a/backend/src/app.js b/backend/src/app.js
+index 4379965..40f8ba0 100644
+--- a/backend/src/app.js
++++ b/backend/src/app.js
+@@ -1,18 +1,29 @@
+ import express from 'express'
+-import { postsRoutes } from './routes/posts.js'
+ import { userRoutes } from './routes/users.js'
+ import bodyParser from 'body-parser'
+ import cors from 'cors'
++import { createServer } from 'node:http'
++import { Server } from 'socket.io'
++
++import { handleSocket } from './socket.js'
+ 
+ const app = express()
+ app.use(bodyParser.json())
+ app.use(cors())
+ 
+-postsRoutes(app)
+ userRoutes(app)
+ 
++const server = createServer(app)
++const io = new Server(server, {
++    cors: {
++        origin: '*',
++    },
++})
++handleSocket(io)
++
+ app.get('/', (req, res) => {
+   res.send('Hello from Express Nodemon!')
+ })
+ 
+-export { app }
++// export { app }
++export { server as app }
+diff --git a/backend/src/db/models/post.js b/backend/src/db/models/post.js
+deleted file mode 100644
+index 2ce0df8..0000000
+--- a/backend/src/db/models/post.js
++++ /dev/null
+@@ -1,11 +0,0 @@
+-import mongoose, { Schema } from 'mongoose'
+-const postSchema = new Schema(
+-  {
+-    title: { type: String, required: true },
+-    author: { type: Schema.Types.ObjectId, ref: 'user', required: true},
+-    contents: String,
+-    tags: [String],
+-  },
+-  { timestamps: true },
+-)
+-export const Post = mongoose.model('post', postSchema)
+\ No newline at end of file
+diff --git a/backend/src/example.js b/backend/src/example.js
+deleted file mode 100644
+index eb3f058..0000000
+--- a/backend/src/example.js
++++ /dev/null
+@@ -1,20 +0,0 @@
+-import { initDatabase } from './db/init.js'
+-
+-import { Post } from './db/models/post.js'
+-
+-import dotenv from 'dotenv'
+-dotenv.config()
+-
+-await initDatabase()
+-
+-const post = new Post({
+-  title: 'Hello second post!',
+-  author: 'Mark Smith',
+-  contents: 'This is my new exciting content',
+-  tags: ['frontend'],
+-})
+-
+-await post.save()
+-
+-const posts = await Post.find()
+-console.log(posts)
+\ No newline at end of file
+diff --git a/backend/src/routes/posts.js b/backend/src/routes/posts.js
+deleted file mode 100644
+index a34edb4..0000000
+--- a/backend/src/routes/posts.js
++++ /dev/null
+@@ -1,73 +0,0 @@
+-import {
+-  listAllPosts,
+-  listPostsByAuthor,
+-  listPostsByTag,
+-  getPostById,
+-  deletePost,
+-  updatePost,
+-  createPost,
+-} from '../services/posts.js'
+-
+-import { requireAuth } from '../middleware/jwt.js'
+-
+-export function postsRoutes(app) {
+-  app.get('/api/v1/posts', async (req, res) => {
+-    const { sortBy, sortOrder, author, tag } = req.query
+-    const options = { sortBy, sortOrder }
+-    try {
+-      if (author && tag) {
+-        return res
+-          .status(400)
+-          .json({ error: 'query by either author or tag, not both' })
+-      } else if (author) {
+-        return res.json(await listPostsByAuthor(author, options))
+-      } else if (tag) {
+-        return res.json(await listPostsByTag(tag, options))
+-      } else {
+-        return res.json(await listAllPosts(options))
+-      }
+-    } catch (err) {
+-      console.error('error listing posts', err)
+-      return res.status(500).end()
+-    }
+-  })
+-  app.get('/api/v1/posts/:id', async (req, res) => {
+-    const { id } = req.params
+-    try {
+-      const post = await getPostById(id)
+-      if (post === null) return res.status(404).end()
+-      return res.json(post)
+-    } catch (err) {
+-      console.error('error getting post', err)
+-      return res.status(500).end()
+-    }
+-  })
+-  app.post('/api/v1/posts', requireAuth, async (req, res) => {
+-    try {
+-      const post = await createPost(req.auth.sub, req.body)
+-      return res.json(post)
+-    } catch (err) {
+-      console.error('error creating post', err)
+-      return res.status(500).end()
+-    }
+-  })
+-  app.patch('/api/v1/posts/:id', requireAuth, async (req, res) => {
+-    try {
+-      const post = await updatePost(req.auth.sub, req.params.id, req.body)
+-      return res.json(post)
+-    } catch (err) {
+-      console.error('error updating post', err)
+-      return res.status(500).end()
+-    }
+-  })
+-  app.delete('/api/v1/posts/:id', requireAuth, async (req, res) => {
+-    try {
+-      const { deletedCount } = await deletePost(req.auth.sub, req.params.id)
+-      if (deletedCount === 0) return res.sendStatus(404)
+-      return res.status(204).end()
+-    } catch (err) {
+-      console.error('error deleting post', err)
+-      return res.status(500).end()
+-    }
+-  })
+-}
+\ No newline at end of file
+diff --git a/backend/src/services/posts.js b/backend/src/services/posts.js
+deleted file mode 100644
+index b248ccb..0000000
+--- a/backend/src/services/posts.js
++++ /dev/null
+@@ -1,44 +0,0 @@
+-import { Post } from '../db/models/post.js'
+-import { User } from '../db/models/user.js'
+-
+-export async function createPost(userId, { title, contents, tags }) {
+-  const post = new Post({ title, author: userId, contents, tags })
+-  return await post.save()
+-}
+-
+-async function listPosts(
+-  query = {},
+-  { sortBy = 'createdAt', sortOrder = 'descending' } = {},
+-) {
+-  return await Post.find(query).sort({ [sortBy]: sortOrder })
+-}
+-
+-export async function listAllPosts(options) {
+-  return await listPosts({}, options)
+-}
+-
+-export async function listPostsByAuthor(authorUsername, options) {
+-  const user = await User.findOne({ username: authorUsername })
+-  if (!user) return []
+-  return await listPosts({ author: user._id }, options)
+-}
+-
+-export async function listPostsByTag(tags, options) {
+-  return await listPosts({ tags }, options)
+-}
+-
+-export async function getPostById(postId) {
+-  return await Post.findById(postId)
+-}
+-
+-export async function updatePost(userId, postId, { title, contents, tags }) {
+-  return await Post.findOneAndUpdate(
+-    { _id: postId, author: userId },
+-    { $set: { title, contents, tags } },
+-    { new: true },
+-  )
+-}
+-
+-export async function deletePost(userId, postId) {
+-  return await Post.deleteOne({ _id: postId, author: userId })
+-}
+\ No newline at end of file
+diff --git a/package-lock.json b/package-lock.json
+index bf90c08..88ea770 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -13,8 +13,8 @@
+         "mongodb": "^6.3.0",
+         "react": "^18.2.0",
+         "react-dom": "^18.2.0",
+-        "react-router": "^6.21.0",
+-        "react-router-dom": "^6.21.0"
++        "react-router-dom": "^6.21.0",
++        "socket.io-client": "^4.7.2"
+       },
+       "devDependencies": {
+         "@types/react": "^18.2.37",
+@@ -1966,6 +1966,12 @@
+         "@sinonjs/commons": "^3.0.0"
+       }
+     },
++    "node_modules/@socket.io/component-emitter": {
++      "version": "3.1.2",
++      "resolved": "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz",
++      "integrity": "sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==",
++      "license": "MIT"
++    },
+     "node_modules/@tanstack/query-core": {
+       "version": "5.12.1",
+       "resolved": "https://registry.npmjs.org/@tanstack/query-core/-/query-core-5.12.1.tgz",
+@@ -3133,7 +3139,6 @@
+       "version": "4.4.3",
+       "resolved": "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz",
+       "integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==",
+-      "dev": true,
+       "license": "MIT",
+       "dependencies": {
+         "ms": "^2.1.3"
+@@ -3290,6 +3295,45 @@
+       "dev": true,
+       "license": "MIT"
+     },
++    "node_modules/engine.io-client": {
++      "version": "6.5.4",
++      "resolved": "https://registry.npmjs.org/engine.io-client/-/engine.io-client-6.5.4.tgz",
++      "integrity": "sha512-GeZeeRjpD2qf49cZQ0Wvh/8NJNfeXkXXcoGh+F77oEAgo9gUHwT1fCRxSNU+YEEaysOJTnsFHmM5oAcPy4ntvQ==",
++      "license": "MIT",
++      "dependencies": {
++        "@socket.io/component-emitter": "~3.1.0",
++        "debug": "~4.3.1",
++        "engine.io-parser": "~5.2.1",
++        "ws": "~8.17.1",
++        "xmlhttprequest-ssl": "~2.0.0"
++      }
++    },
++    "node_modules/engine.io-client/node_modules/debug": {
++      "version": "4.3.7",
++      "resolved": "https://registry.npmjs.org/debug/-/debug-4.3.7.tgz",
++      "integrity": "sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==",
++      "license": "MIT",
++      "dependencies": {
++        "ms": "^2.1.3"
++      },
++      "engines": {
++        "node": ">=6.0"
++      },
++      "peerDependenciesMeta": {
++        "supports-color": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/engine.io-parser": {
++      "version": "5.2.3",
++      "resolved": "https://registry.npmjs.org/engine.io-parser/-/engine.io-parser-5.2.3.tgz",
++      "integrity": "sha512-HqD3yTBfnBxIrbnM1DoD6Pcq8NECnh8d4As1Qgh0z5Gg3jRRIqijury0CL3ghu/edArpUYiYqQiDUQBIs4np3Q==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=10.0.0"
++      }
++    },
+     "node_modules/error-ex": {
+       "version": "1.3.4",
+       "resolved": "https://registry.npmjs.org/error-ex/-/error-ex-1.3.4.tgz",
+@@ -6283,7 +6327,6 @@
+       "version": "2.1.3",
+       "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
+       "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==",
+-      "dev": true,
+       "license": "MIT"
+     },
+     "node_modules/nanoid": {
+@@ -7479,6 +7522,51 @@
+         "npm": ">= 3.0.0"
+       }
+     },
++    "node_modules/socket.io-client": {
++      "version": "4.7.2",
++      "resolved": "https://registry.npmjs.org/socket.io-client/-/socket.io-client-4.7.2.tgz",
++      "integrity": "sha512-vtA0uD4ibrYD793SOIAwlo8cj6haOeMHrGvwPxJsxH7CeIksqJ+3Zc06RvWTIFgiSqx4A3sOnTXpfAEE2Zyz6w==",
++      "license": "MIT",
++      "dependencies": {
++        "@socket.io/component-emitter": "~3.1.0",
++        "debug": "~4.3.2",
++        "engine.io-client": "~6.5.2",
++        "socket.io-parser": "~4.2.4"
++      },
++      "engines": {
++        "node": ">=10.0.0"
++      }
++    },
++    "node_modules/socket.io-client/node_modules/debug": {
++      "version": "4.3.7",
++      "resolved": "https://registry.npmjs.org/debug/-/debug-4.3.7.tgz",
++      "integrity": "sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==",
++      "license": "MIT",
++      "dependencies": {
++        "ms": "^2.1.3"
++      },
++      "engines": {
++        "node": ">=6.0"
++      },
++      "peerDependenciesMeta": {
++        "supports-color": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/socket.io-parser": {
++      "version": "4.2.7",
++      "resolved": "https://registry.npmjs.org/socket.io-parser/-/socket.io-parser-4.2.7.tgz",
++      "integrity": "sha512-IH/iSeO9T6gz1KkFleGDWkG9N3dl4jXVYUtMhIqH10Md0ttMer8nUNWiP1DKuNrybD2xBrixLJdCC9J6ECoYkg==",
++      "license": "MIT",
++      "dependencies": {
++        "@socket.io/component-emitter": "~3.1.0",
++        "debug": "~4.4.1"
++      },
++      "engines": {
++        "node": ">=10.0.0"
++      }
++    },
+     "node_modules/socks": {
+       "version": "2.8.10",
+       "resolved": "https://registry.npmjs.org/socks/-/socks-2.8.10.tgz",
+@@ -8356,6 +8444,35 @@
+         "node": "^12.13.0 || ^14.15.0 || >=16.0.0"
+       }
+     },
++    "node_modules/ws": {
++      "version": "8.17.1",
++      "resolved": "https://registry.npmjs.org/ws/-/ws-8.17.1.tgz",
++      "integrity": "sha512-6XQFvXTkbfUOZOKKILFG1PDK2NDQs4azKQl26T0YS5CxqWLgXajbPZ+h4gZekJyRqFU8pvnbAbbs/3TgRPy+GQ==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=10.0.0"
++      },
++      "peerDependencies": {
++        "bufferutil": "^4.0.1",
++        "utf-8-validate": ">=5.0.2"
++      },
++      "peerDependenciesMeta": {
++        "bufferutil": {
++          "optional": true
++        },
++        "utf-8-validate": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/xmlhttprequest-ssl": {
++      "version": "2.0.0",
++      "resolved": "https://registry.npmjs.org/xmlhttprequest-ssl/-/xmlhttprequest-ssl-2.0.0.tgz",
++      "integrity": "sha512-QKxVRxiRACQcVuQEYFsI1hhkrMlrXHPegbbd1yn9UHOmRxY+si12nQYzri3vbzt8VdTTRviqcKxcyllFas5z2A==",
++      "engines": {
++        "node": ">=0.4.0"
++      }
++    },
+     "node_modules/y18n": {
+       "version": "5.0.8",
+       "resolved": "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz",
+diff --git a/package.json b/package.json
+index 63f4882..c71a341 100644
+--- a/package.json
++++ b/package.json
+@@ -15,7 +15,8 @@
+     "mongodb": "^6.3.0",
+     "react": "^18.2.0",
+     "react-dom": "^18.2.0",
+-    "react-router-dom": "^6.21.0"
++    "react-router-dom": "^6.21.0",
++    "socket.io-client": "^4.7.2"
+   },
+   "devDependencies": {
+     "@types/react": "^18.2.37",
+diff --git a/src/App.jsx b/src/App.jsx
+index 08bb35a..2de585a 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,17 +1,18 @@
+ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+-import { Blog } from './pages/Blog.jsx'
++import { Chat } from './pages/Chat.jsx'
+ import { Signup } from './pages/Signup.jsx'
+ import { Login } from './pages/Login.jsx'
+ import { AuthContextProvider } from './contexts/AuthContext.jsx'
+ 
+ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
++import { SocketIOContextProvider } from './contexts/SocketIOContext.jsx'
+ 
+ const queryClient = new QueryClient()
+ 
+ const router = createBrowserRouter([
+   {
+     path: '/',
+-    element: <Blog />,
++    element: <Chat />,
+   },
+   {
+     path: '/signup',
+@@ -27,8 +28,10 @@ export function App() {
+   return (
+     <QueryClientProvider client={queryClient}>
+       <AuthContextProvider>
+-        <RouterProvider router={router} />
++        <SocketIOContextProvider>
++          <RouterProvider router={router} />
++        </SocketIOContextProvider>
+       </AuthContextProvider>
+     </QueryClientProvider>
+   )
+-}
+\ No newline at end of file
++}
+diff --git a/src/api/posts.js b/src/api/posts.js
+deleted file mode 100644
+index 3aca696..0000000
+--- a/src/api/posts.js
++++ /dev/null
+@@ -1,23 +0,0 @@
+-export const getPosts = async (queryParams) => {
+-  const res = await fetch(
+-    `${import.meta.env.VITE_BACKEND_URL}/posts?` +
+-      new URLSearchParams(queryParams),
+-  )
+-  return await res.json()
+-}
+-
+-export const createPost = async (token, post) => {
+-  const res = await fetch(
+-    `${import.meta.env.VITE_BACKEND_URL}/
+-				posts`,
+-    {
+-      method: 'POST',
+-      headers: {
+-        'Content-Type': 'application/json',
+-        Authorization: `Bearer ${token}`,
+-      },
+-      body: JSON.stringify(post),
+-    },
+-  )
+-  return await res.json()
+-}
+\ No newline at end of file
+diff --git a/src/components/CreatePost.jsx b/src/components/CreatePost.jsx
+deleted file mode 100644
+index 62691ef..0000000
+--- a/src/components/CreatePost.jsx
++++ /dev/null
+@@ -1,57 +0,0 @@
+-import { useState } from 'react'
+-import { useMutation, useQueryClient } from '@tanstack/react-query'
+-import { useAuth } from '../contexts/AuthContext.jsx'
+-import { createPost } from '../api/posts'
+-
+-export function CreatePost() {
+-  const [title, setTitle] = useState('')
+-  const [contents, setContents] = useState('')
+-
+-  const [token] = useAuth()
+-
+-  const queryClient = useQueryClient()
+-
+-  const createPostMutation = useMutation({
+-    mutationFn: () => createPost(token, { title, contents }),
+-    onSuccess: () => queryClient.invalidateQueries(['posts']),
+-  })
+-
+-  const handleSubmit = (e) => {
+-    e.preventDefault()
+-    createPostMutation.mutate()
+-  }
+-
+-  if (!token) return <div>Please log in to create new posts.</div>
+-
+-  return (
+-    <form onSubmit={handleSubmit}>
+-      <div>
+-        <label htmlFor='create-title'>Title: </label>
+-        <input
+-          type='text'
+-          name='create-title'
+-          id='create-title'
+-          value={title}
+-          onChange={(e) => setTitle(e.target.value)} 
+-        />
+-      </div>
+-      <br />
+-      <textarea 
+-        value={contents}
+-        onChange={(e) => setContents(e.target.value)}
+-      />
+-      <br />
+-      <br />
+-      <input 
+-        type='submit' 
+-        value={createPostMutation.isPending ? 'Creating....' : 'Create'} 
+-      />
+-      {createPostMutation.isSuccess ? (
+-        <>
+-         <br />
+-          Post created successfully!
+-        </>
+-      ) : null}
+-    </form>
+-  )
+-}
+diff --git a/src/components/Post.jsx b/src/components/Post.jsx
+deleted file mode 100644
+index 0161169..0000000
+--- a/src/components/Post.jsx
++++ /dev/null
+@@ -1,23 +0,0 @@
+-import PropTypes from 'prop-types'
+-import { User } from './User.jsx'
+-
+-export function Post({ title, contents, author: userId }) {
+-  return (
+-    <article>
+-      <h3>{title}</h3>
+-      <div>{contents}</div>
+-      {userId && (
+-        <em>
+-          <br />
+-          Written by <User id={userId} />
+-        </em>
+-      )}
+-    </article>
+-  )
+-}
+-
+-Post.propTypes = {
+-  title: PropTypes.string.isRequired,
+-  contents: PropTypes.string.isRequired,
+-  author: PropTypes.string,
+-}
+\ No newline at end of file
+diff --git a/src/components/PostFilter.jsx b/src/components/PostFilter.jsx
+deleted file mode 100644
+index e1bde86..0000000
+--- a/src/components/PostFilter.jsx
++++ /dev/null
+@@ -1,20 +0,0 @@
+-import PropTypes from 'prop-types'
+-export function PostFilter({ field, value, onChange }) {
+-  return (
+-    <div>
+-      <label htmlFor={`filter-${field}`}>{field}: </label>
+-      <input 
+-        type='text' 
+-        name={`filter-${field}`} 
+-        id={`filter-${field}`} 
+-        value={value} 
+-        onChange={(e) => onChange(e.target.value)}
+-      />
+-    </div>
+-  )
+-}
+-PostFilter.propTypes = {
+-  field: PropTypes.string.isRequired,
+-  value: PropTypes.string.isRequired,
+-  onChange: PropTypes.func.isRequired,
+-}
+\ No newline at end of file
+diff --git a/src/components/PostList.jsx b/src/components/PostList.jsx
+deleted file mode 100644
+index 780af4b..0000000
+--- a/src/components/PostList.jsx
++++ /dev/null
+@@ -1,18 +0,0 @@
+-import { Fragment } from 'react'
+-import PropTypes from 'prop-types'
+-import { Post } from './Post.jsx'
+-export function PostList({ posts = [] }) {
+-  return (
+-    <div>
+-      {posts.map((post) => (
+-        <Fragment key={post._id}>
+-          <Post {...post} />
+-          <hr />
+-        </Fragment>
+-      ))}
+-    </div>
+-  )
+-}
+-PostList.propTypes = {
+-  posts: PropTypes.arrayOf(PropTypes.shape(Post.propTypes)).isRequired,
+-}
+\ No newline at end of file
+diff --git a/src/components/PostSorting.jsx b/src/components/PostSorting.jsx
+deleted file mode 100644
+index 626ff0e..0000000
+--- a/src/components/PostSorting.jsx
++++ /dev/null
+@@ -1,44 +0,0 @@
+-import PropTypes from 'prop-types'
+-export function PostSorting({
+-    fields = [],
+-    value,
+-    onChange,
+-    orderValue,
+-    onOrderChange,
+-  }) {
+-  return (
+-    <div>
+-      <label htmlFor='sortBy'>Sort By: </label>
+-      <select 
+-        name='sortBy' 
+-        id='sortBy' 
+-        value={value} 
+-        onChange={(e) => onChange(e.target.value)
+-      }>
+-        {fields.map((field) => (
+-          <option key={field} value={field}>
+-            {field}
+-          </option>
+-        ))}
+-      </select>
+-      {' / '}
+-      <label htmlFor='sortOrder'>Sort Order: </label>
+-      <select 
+-        name='sortOrder' 
+-        id='sortOrder'
+-        value={orderValue}
+-        onChange={(e) => onOrderChange(e.target.value)}
+-      >
+-        <option value={'ascending'}>ascending</option>
+-        <option value={'descending'}>descending</option>
+-      </select>
+-    </div>
+-  )
+-}
+-PostSorting.propTypes = {
+-  fields: PropTypes.arrayOf(PropTypes.string).isRequired,
+-  value: PropTypes.string.isRequired,
+-  onChange: PropTypes.func.isRequired,
+-  orderValue: PropTypes.string.isRequired,
+-  onOrderChange: PropTypes.func.isRequired,
+-}
+\ No newline at end of file
+diff --git a/src/pages/Blog.jsx b/src/pages/Blog.jsx
+deleted file mode 100644
+index 94de80f..0000000
+--- a/src/pages/Blog.jsx
++++ /dev/null
+@@ -1,50 +0,0 @@
+-import { PostList } from '../components/PostList.jsx'
+-import { CreatePost } from '../components/CreatePost.jsx'
+-import { PostFilter } from '../components/PostFilter.jsx'
+-import { PostSorting } from '../components/PostSorting.jsx'
+-
+-import { Header } from '../components/Header.jsx'
+-
+-import { useState } from 'react'
+-
+-import { useQuery } from '@tanstack/react-query'
+-import { getPosts } from '../api/posts.js'
+-
+-export function Blog() {
+-
+-  const [author, setAuthor] = useState('')
+-  const [sortBy, setSortBy] = useState('createdAt')
+-  const [sortOrder, setSortOrder] = useState('descending')
+-
+-  const postQuery = useQuery({
+-    queryKey: ['posts', { author, sortBy, sortOrder }],
+-    queryFn: () => getPosts({ author, sortBy, sortOrder }),
+-  })
+-
+-  const posts = postQuery.data ?? []
+-
+-  return (
+-    <div style={{ padding: 8 }}>
+-      <Header />
+-      <br />
+-      <hr />
+-      <CreatePost />
+-      <br />
+-      <hr />
+-      Filter by:
+-      <PostFilter 
+-        field='author' 
+-        value={author} 
+-        onChange={(value) => setAuthor(value)}/>
+-      <br />
+-      <PostSorting
+-        fields={['createdAt', 'updatedAt']}
+-        value={sortBy}
+-        onChange={(value) => setSortBy(value)}
+-        orderValue={sortOrder}
+-        onOrderChange={(orderValue) => setSortOrder(orderValue)}/>
+-      <hr />
+-      <PostList posts={posts} />
+-    </div>
+-  )
+-}
